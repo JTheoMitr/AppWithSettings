@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <android.support.v7.preference.SwitchPreferenceCompat
+    <SwitchPreferenceCompat
         android:defaultValue="false"
         android:key="example_switch"
+        android:summary="@string/switch_summary"
+        android:title="@string/switch_title" />
+
+    <SwitchPreferenceCompat
+        android:defaultValue="false"
+        android:key="example_switch_two"
         android:summary="@string/switch_summary"
         android:title="@string/switch_title" />
 </PreferenceScreen>
