@@ -1,6 +1,7 @@
 package android.example.appwithsettings;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -13,11 +14,13 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+import androidx.preference.PreferenceManager;
 
 import android.example.appwithsettings.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +47,17 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        PreferenceManager
+                .setDefaultValues(this, R.xml.preferences, false);
+        SharedPreferences sharedPref =
+                PreferenceManager
+                        .getDefaultSharedPreferences(this);
+        Boolean switchPref = sharedPref.getBoolean
+                (SettingsActivity.KEY_PREF_EXAMPLE_SWITCH, false);
+//        Toast.makeText(this, switchPref.toString(),
+//                Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Settings were saved",
+                Toast.LENGTH_SHORT).show();
     }
 
     @Override
